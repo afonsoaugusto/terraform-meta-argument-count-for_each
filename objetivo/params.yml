@@ -1,0 +1,16 @@
+cluster_name: cl-sherlock
+boot_disk_size:
+    initalize_params:
+        image: sherlock-abc-1.0.0
+network_interface:
+    network: product
+    subnetwork: application
+nodes:
+  - name: control-plane
+    machine_type: n1-standard-1
+    startup_script: sherlock-control-plane.sh
+    count: 3
+  - name: worker
+    machine_type: n1-standard-1    
+    startup_script: sherlock-worker.sh
+    count: 3    
